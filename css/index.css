@@ -1,0 +1,166 @@
+html {
+  font-size: 100px;
+}
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
+#app {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+  z-index: 2;
+}
+#app {
+  position: relative;
+}
+#app .top {
+  height: 3rem;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#app .top .top-big {
+  position: relative;
+  height: 2.5rem;
+  width: 2.5rem;
+  animation-play-state: paused;
+  animation-name: diskRotate;
+  /* 使用定义的关键帧动画 */
+  animation-duration: 5s;
+  /* 动画持续时间 */
+  animation-iteration-count: infinite;
+  /* 动画播放次数 */
+  animation-timing-function: linear;
+  /* 动画缓动函数 */
+  animation-fill-mode: forwards;
+  /* 动画结束后保持最后状态 */
+}
+#app .top .top-big img:nth-child(1) {
+  width: 100%;
+  height: 100%;
+}
+#app .top .top-big img:nth-child(2) {
+  position: absolute;
+  width: 1.6rem;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#app .top .top-small {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.45rem;
+}
+#app .top .top-small img {
+  width: 0.7rem;
+}
+#app .middle {
+  height: calc(100vh - 4rem);
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+#app .middle .middle-head {
+  flex: 1;
+  font-size: 0.2rem;
+  margin-bottom: 0.1rem;
+}
+#app .middle .middle-body {
+  flex: 6;
+  overflow: hidden;
+}
+#app .middle .middle-body .lyric-body p {
+  font-size: 0.12rem;
+  padding: 0.1rem 0;
+}
+#app .middle .middle-body .lyric-body .active {
+  color: green;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+}
+#app .middle #audioBox {
+  display: none;
+}
+#app .bottom {
+  height: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+#app .bottom .progress-back {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+#app .bottom .progress-back .time {
+  width: 0.5rem;
+  line-height: 0.46rem;
+  text-align: center;
+  font-size: 0.12rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+#app .bottom .progress-back .progress-total {
+  width: 100%;
+  position: relative;
+  flex: 1;
+  height: 0.02rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+#app .bottom .progress-back .progress-total .already {
+  height: 100%;
+  width: 0%;
+  background-color: blue;
+}
+#app .button-total {
+  flex: 2;
+  display: flex;
+}
+#app .button-total .leftButton,
+#app .button-total .righButton {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#app .button-total .leftButton button,
+#app .button-total .righButton button {
+  width: 1.5rem;
+  height: 0.3rem;
+  border-radius: 0.15rem;
+  background-color: rgba(0, 0, 0, 0);
+}
+#app .button-total .righButton button {
+  background-color: red;
+}
+#app .loadingBox {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+  background-color: gray;
+  left: 0;
+  top: 0;
+}
+#app .loadingBox .content {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#app .loadingBox .content span {
+  margin-top: 0.5rem;
+  font-size: 0.15rem;
+  color: blue;
+  display: block;
+}
+@keyframes diskRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

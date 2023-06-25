@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易云</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/prefixfree.min.js" async></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="top">
+            <div class="top-back">
+            </div>
+            <div class="top-big">
+                <img src="images/d7e4e3a244701ee85fecb5d4f6b5bd57.png" alt="">
+                <!-- <img src="images/center.jpg" alt=""> -->
+            </div>
+            <div class="top-small">
+                <img src="./images/anniu.png" alt="">
+            </div>
+        </div>
+        <!-- 歌词盒子 -->
+        <div class="middle">
+            <!-- 歌名 -->
+            <div class="middle-head">
+                <!-- <span>歌名</span>
+                <span>-</span>
+                <span>歌手名</span> -->
+            </div>
+            <div class="middle-body">
+                <div class="lyric-body">
+                    <!-- <p>我是一个歌词</p> -->
+                </div>
+            </div>
+            <!-- <p></p> -->
+        </div>
+        <div class="bottom">
+            <div class="progress-back">
+                <span class="time current">
+                    00:00
+                </span>
+                <div class="progress-total">
+                    <div class="already"></div>
+                </div>
+                <span class="time duration">
+                    <!--00:00 -->
+                </span>
+            </div>
+            <div class="button-total">
+                <div class="leftButton"><button>打开</button></div>
+                <div class="righButton"><button>下载</button></div>
+            </div>
+        </div>
+        <audio src="" id="audioBox" preload="metadata"></audio>
+        <div class="loadingBox">
+            <div class="content">
+                <img src="images/loading.gif" alt="">
+                <span>别催，我正在努力加载中</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            const app = document.querySelector('#app'),
+                html = document.documentElement
+            const computed = function computed() {
+                let orien = Math.abs(window.orientation)
+                //当屏幕是横屏的时候
+                if (orien === 90) {
+                    alert("请切换至横屏")
+                    app.style.display = "none"
+                    return
+                } else {
+                    //竖屏的时候
+                    app.style.display = "block"
+                    //计算REM的换算比列
+                    let deviceW = html.clientWidth,
+                        designW = 375,
+                        initialRatio = 100
+                    if (deviceW > 540) deviceW = 540
+                    let currentRatio = deviceW / designW * initialRatio
+                    let res = html.style.fontSize = currentRatio + 'px'
+                    console.log(deviceW);
+                }
+            }
+            computed()
+            window.addEventListener('resize', computed)
+
+        })()
+    </script>
+    <script src="js/requestApi.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
